@@ -11,3 +11,12 @@ html, body {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+
+.flex {
+    display: flex;
+
+    &-center {
+        align-items: center;
+        justify-content: center;
+    }
+}
