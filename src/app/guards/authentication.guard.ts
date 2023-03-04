@@ -24,7 +24,7 @@ export class AuthenticationGuard implements CanLoad {
     }
 
     return new Promise(async (res) => {
-      const createdUser = this.spotifyService.initializeUser();
+      const createdUser = await this.spotifyService.initializeUser();
 
       if(createdUser) res(true)
       else res(this.notAuthenticated())
