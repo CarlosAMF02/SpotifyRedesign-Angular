@@ -7,6 +7,8 @@ import { LeftPanelComponent } from 'src/app/components/left-panel/left-panel.com
 import { MenuButtonComponent } from 'src/app/components/menu-button/menu-button.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserInfoComponent } from 'src/app/components/user-info/user-info.component';
+import { HomeComponent } from 'src/app/components/home/home.component';
+import { FavoriteArtistComponent } from 'src/app/components/favorite-artist/favorite-artist.component';
 
 
 
@@ -15,7 +17,9 @@ import { UserInfoComponent } from 'src/app/components/user-info/user-info.compon
     PlayerComponent,
     LeftPanelComponent,
     MenuButtonComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    HomeComponent,
+    FavoriteArtistComponent
   ],
   imports: [
     CommonModule,
