@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserInfoComponent } from 'src/app/components/user-info/user-info.component';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { FavoriteArtistComponent } from 'src/app/components/favorite-artist/favorite-artist.component';
+import { RightPanelComponent } from 'src/app/components/right-panel/right-panel.component';
 
 
 
@@ -19,7 +20,8 @@ import { FavoriteArtistComponent } from 'src/app/components/favorite-artist/favo
     MenuButtonComponent,
     UserInfoComponent,
     HomeComponent,
-    FavoriteArtistComponent
+    FavoriteArtistComponent,
+    RightPanelComponent
   ],
   imports: [
     CommonModule,

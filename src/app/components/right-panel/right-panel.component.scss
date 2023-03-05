@@ -1,0 +1,13 @@
+@import 'variables';
+
+:host {
+    background-color: $background-color2;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 100vh;
+    max-width: 300px;
+    min-height: 100vh;
+    padding: 40px 20px 20px 20px;
+    width: 300px; 
+}
