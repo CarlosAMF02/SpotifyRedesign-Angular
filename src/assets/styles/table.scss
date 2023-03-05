@@ -4,11 +4,17 @@
     width: 100%;
     text-align: left;
     table-layout: fixed;
-    border-collapse: separate;
+    border-collapse: collapse;
 
     .play {
         color: $primary-color;
         font-size: .8rem;
+    }
+
+    .playing {
+        background-color: &background-color2;
+        padding: 10px;
+        box-shadow: 0 0 15px $transparent-black-30;
     }
 
     thead th {
@@ -39,6 +45,7 @@
             font-weight: 500;
             margin-top: 10px;
             padding: 10px 20px 10px 0;
+            padding-left: 10px;
         }
     }
 

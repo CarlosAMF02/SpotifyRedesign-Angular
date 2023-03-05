@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let track of tracks" (click)="playTrack(track)">
+            <tr [class.playing] = "track.id == actualTrack.id" *ngFor="let track of tracks" (click)="playTrack(track)">
                 <td>
                     <fa-icon class="play" [icon]="playIcon" ></fa-icon>
                 </td>

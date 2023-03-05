@@ -85,9 +85,24 @@ export class SpotifyService {
   }
 
   async playTrack(trackId: string) {
+    
     await this.spotifyApi.queue(trackId);
     await this.spotifyApi.skipToNext();
+    
+    try {
+      await this.spotifyApi.play();
+    } catch(ex) {
+      console.error(ex)
+    }
+    
+    
   } 
+
+  async getActualTrack(): Promise<ITrack> {
+    const track = await this.spotifyApi.getMyCurrentPlayingTrack();
+
+    return SpotifyTrackToTrack(track.item);
+  }
 
   logout() {
     localStorage.clear();

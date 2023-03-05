@@ -11,6 +11,6 @@ export const PlayerRoutes: Routes = [
                 path: 'home',
                 component: HomeComponent
             }
-        ]
+        ],
     },
 ]

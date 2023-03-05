@@ -3,6 +3,7 @@ import { IPlaylist } from "../interfaces/IPlaylist";
 import { ITrack } from "../interfaces/ITrack";
 import { IUser } from "../interfaces/IUser";
 import { msToMinute } from "./converters";
+import { newTrack } from "./factories";
 
 export function SpotifyUserToUser(user: SpotifyApi.CurrentUsersProfileResponse): IUser {
     return { 
@@ -29,6 +30,8 @@ export function SpotifyArtistFullToArtist(artist: SpotifyApi.ArtistObjectFull): 
 }
 
 export function SpotifyTrackToTrack(track: SpotifyApi.TrackObjectFull): ITrack {
+
+    if (!track) return newTrack();
 
     return {
         id: track.uri,
