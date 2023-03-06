@@ -104,6 +104,22 @@ export class SpotifyService {
     return SpotifyTrackToTrack(track.item);
   }
 
+  async nextTrack() {
+    await this.spotifyApi.skipToNext();
+  }
+
+  async previousTrack() {
+    await this.spotifyApi.skipToPrevious();
+  }
+
+  async play() {
+    try {
+      await this.spotifyApi.play();
+    } catch(ex) {
+      console.error(ex);
+    }
+  }
+
   logout() {
     localStorage.clear();
     this.router.navigate(['/login']);

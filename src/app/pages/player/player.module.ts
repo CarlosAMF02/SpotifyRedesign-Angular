@@ -14,6 +14,7 @@ import { RecentSearchComponent } from 'src/app/components/recent-search/recent-s
 import { FormsModule } from '@angular/forms';
 import { TopArtistsComponent } from 'src/app/components/top-artists/top-artists.component';
 import { ArtistItemImageComponent } from 'src/app/components/artist-item-image/artist-item-image.component'
+import { PlayerCardComponent } from 'src/app/components/player-card/player-card.component';
 
 
 
@@ -28,7 +29,8 @@ import { ArtistItemImageComponent } from 'src/app/components/artist-item-image/a
     RightPanelComponent,
     RecentSearchComponent,
     TopArtistsComponent,
-    ArtistItemImageComponent
+    ArtistItemImageComponent,
+    PlayerCardComponent
   ],
   imports: [
     CommonModule,

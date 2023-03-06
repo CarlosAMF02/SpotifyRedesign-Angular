@@ -1,0 +1,11 @@
+<div class="container card">
+    <div class="image" [style.background-image]="'url(' + actualTrack.album.imageUrl + ')'"></div>
+    <div class="controls">
+        <span>{{actualTrack.title}}</span>
+        <div class="buttons">
+            <fa-icon [icon]="backIcon" (click)="previousTrack()"></fa-icon>
+            <fa-icon [icon]="playIcon" (click)="playTrack()"></fa-icon>
+            <fa-icon [icon]="nextIcon" (click)="nextTrack()"></fa-icon>
+        </div>
+    </div>
+</div>
