@@ -18,8 +18,6 @@ export class RecentSearchComponent {
 
   searchAction() {
     if( this.searchField) {
-      console.log("Buscando...", this.searchField)
-
       if (!this.recentSearch.includes(this.searchField)) {
         for (let i = --this.recentSearch.length; i >= 0; i--) {
           if (i == 0) {

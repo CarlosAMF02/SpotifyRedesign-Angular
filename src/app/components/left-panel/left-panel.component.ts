@@ -38,6 +38,5 @@ export class LeftPanelComponent implements OnInit {
 
   async getPlaylists() {
     this.playlists = await this.spotifyService.getUserPlaylists();
-    console.log(this.playlists);
   }
 }
