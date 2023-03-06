@@ -10,6 +10,10 @@ import { UserInfoComponent } from 'src/app/components/user-info/user-info.compon
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { FavoriteArtistComponent } from 'src/app/components/favorite-artist/favorite-artist.component';
 import { RightPanelComponent } from 'src/app/components/right-panel/right-panel.component';
+import { RecentSearchComponent } from 'src/app/components/recent-search/recent-search.component';
+import { FormsModule } from '@angular/forms';
+import { TopArtistsComponent } from 'src/app/components/top-artists/top-artists.component';
+import { ArtistItemImageComponent } from 'src/app/components/artist-item-image/artist-item-image.component'
 
 
 
@@ -21,11 +25,15 @@ import { RightPanelComponent } from 'src/app/components/right-panel/right-panel.
     UserInfoComponent,
     HomeComponent,
     FavoriteArtistComponent,
-    RightPanelComponent
+    RightPanelComponent,
+    RecentSearchComponent,
+    TopArtistsComponent,
+    ArtistItemImageComponent
   ],
   imports: [
     CommonModule,
     FontAwesomeModule,
+    FormsModule,
     RouterModule.forChild(PlayerRoutes)
   ]
 })

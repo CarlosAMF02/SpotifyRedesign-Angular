@@ -1,0 +1,4 @@
+<input type="text" [(ngModel)]="searchField" (keyup.enter)="searchAction()" placeholder="Artistas, Músicas, Playlists" />
+<div class="suggestions flex">
+    <span (click)="searchOption(search)" *ngFor="let search of recentSearch">{{ search }}</span>
+</div>

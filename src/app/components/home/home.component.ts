@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   async getSavedTracks() {
     this.tracks = await this.spotifyService.getUserSavedTracks();
-    console.log(this.tracks);
   }
 
   getActualTrack() {
