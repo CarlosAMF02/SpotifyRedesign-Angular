@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-artist-item-image',
@@ -8,6 +9,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class ArtistItemImageComponent {
 
   @Input()
+  artistId = '';
+
+  @Input()
   imageSrc = '';
 
   @Input()
@@ -15,9 +19,11 @@ export class ArtistItemImageComponent {
 
   @Output()
   click = new EventEmitter<void>();
+
+  constructor(private router: Router) {}
   
   onClick() {
-    this.click.emit();
+    this.router.navigateByUrl('/player/list/artist/' + this.artistId);
   }
 
 

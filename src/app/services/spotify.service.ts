@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment';
 import Spotify from 'spotify-web-api-js'
 import { IUser } from '../interfaces/IUser';
-import { SpotifyArtistFullToArtist, SpotifyPlaylistToPlaylist, SpotifyTrackToTrack, SpotifyUserToUser } from '../Common/spotifyHelper';
+import { SpotifyArtistFullToArtist, SpotifyPlaylistToPlaylist, SpotifySimpleTrackToTrack, SpotifySinglePlaylistToPlaylist, SpotifyTrackToTrack, SpotifyUserToUser } from '../Common/spotifyHelper';
 import { IPlaylist } from '../interfaces/IPlaylist';
 import { Router } from '@angular/router';
 import { IArtist } from '../interfaces/IArtist';
 import { ITrack } from '../interfaces/ITrack';
+import { ar } from 'date-fns/locale';
 
 @Injectable({
   providedIn: 'root'
@@ -70,6 +71,47 @@ export class SpotifyService {
     const playlists = await this.spotifyApi.getUserPlaylists(this.user.id, { offset, limit });
 
     return playlists.items.map(SpotifyPlaylistToPlaylist);
+  }
+
+  async getPlaylistTracks(playlistId: string, offset = 0, limit = 50) {
+    const playlistSpotify = await this.spotifyApi.getPlaylist(playlistId);
+
+    const playlist = SpotifySinglePlaylistToPlaylist(playlistSpotify);
+
+    const tracksSpotify = await this.spotifyApi.getPlaylistTracks(playlistId, { offset, limit });
+
+    playlist.tracks = tracksSpotify.items.map(track => SpotifyTrackToTrack(track.track as SpotifyApi.TrackObjectFull));
+
+    return playlist;
+  }
+
+  async getArtistTracks(artistId: string, offset = 0, limit = 50) {
+    const artistSpotify = await this.spotifyApi.getArtist(artistId);
+
+    const artist = SpotifyArtistFullToArtist(artistSpotify);
+
+    try {
+
+      const albums = await this.spotifyApi.getArtistAlbums(artistId);
+      const trackList: ITrack[] = [];
+
+      albums.items.forEach(async album => {
+        const tracks = await this.spotifyApi.getAlbumTracks(album.id)
+        tracks.items.map(track => { 
+          const newTrack = SpotifySimpleTrackToTrack(track,album);
+          trackList.push(newTrack);
+        });
+      });
+
+      artist.tracks = trackList;
+
+    } catch (ex) {
+      console.error(ex);
+    }
+
+    
+
+    return artist;
   }
 
   async getFavoriteArtists(limit = 10): Promise<IArtist[]> {

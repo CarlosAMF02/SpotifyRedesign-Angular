@@ -1,0 +1,23 @@
+@import 'table';
+
+:host {
+    display: flex;
+    max-height: 100vh;
+    justify-content: space-between;
+    
+
+    .right-panel {
+        height: 100vh;
+    }
+
+    .list {
+        overflow-y: scroll;
+        padding: 0 50px;
+        padding-bottom: 20px;
+        width: 100%;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

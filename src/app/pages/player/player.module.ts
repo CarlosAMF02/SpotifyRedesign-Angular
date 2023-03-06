@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { TopArtistsComponent } from 'src/app/components/top-artists/top-artists.component';
 import { ArtistItemImageComponent } from 'src/app/components/artist-item-image/artist-item-image.component'
 import { PlayerCardComponent } from 'src/app/components/player-card/player-card.component';
+import { MusicListComponent } from '../music-list/music-list.component';
+import { BannerComponent } from 'src/app/components/banner/banner.component';
 
 
 
@@ -30,7 +32,9 @@ import { PlayerCardComponent } from 'src/app/components/player-card/player-card.
     RecentSearchComponent,
     TopArtistsComponent,
     ArtistItemImageComponent,
-    PlayerCardComponent
+    PlayerCardComponent,
+    MusicListComponent,
+    BannerComponent
   ],
   imports: [
     CommonModule,
