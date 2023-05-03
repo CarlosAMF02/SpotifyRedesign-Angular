@@ -5,27 +5,6 @@
 
     <div class="span titulo-bg mt-4">Músicas Curtidas</div>
 
-    <table class="table mt-3">
-        <thead>
-            <tr>
-                <th class="w-5">#</th>
-                <th class="w-35">Título</th>
-                <th class="w-35">Artista</th>
-                <th class="w-10 right">Duração</th>
-                <th class="w-20">Albúm</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr [class.playing] = "track.id == actualTrack.id" *ngFor="let track of tracks" (click)="playTrack(track)">
-                <td>
-                    <fa-icon class="play" [icon]="playIcon" ></fa-icon>
-                </td>
-                <td>{{track.title}}</td>
-                <td>{{getTrackArtists(track)}}</td>
-                <td class="right">{{track.duration}}</td>
-                <td>{{track.album.name}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <app-music-list-table [tracksList]="tracks"></app-music-list-table>
 </div>
 <app-right-panel class="right-panel"></app-right-panel>

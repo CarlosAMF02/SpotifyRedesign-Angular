@@ -1,20 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { newTrack } from 'src/app/Common/factories';
 import { ITrack } from 'src/app/interfaces/ITrack';
 import { Subscription } from 'rxjs';
 import { SpotifyService } from 'src/app/services/spotify.service';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { PlayerService } from 'src/app/services/player.service';
 
 @Component({
   selector: 'app-music-list',
   templateUrl: './music-list.component.html',
   styleUrls: ['./music-list.component.scss']
 })
-export class MusicListComponent implements OnInit, OnDestroy {
-
-  playIcon = faPlay;
+export class MusicListComponent implements OnInit {
   
   bannerImageUrl = '';
   bannerText = '';
@@ -22,37 +17,15 @@ export class MusicListComponent implements OnInit, OnDestroy {
   title = '';
 
   tracksList: ITrack[] = [];
-  actualTrack: ITrack = newTrack();
 
   subs: Subscription[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, 
     private router: Router, 
-    private spotifyService: SpotifyService, 
-    private playerService: PlayerService) {}
+    private spotifyService: SpotifyService) {}
 
   ngOnInit(): void {
     this.getTracks();
-    this.getActualTrack();
-  }
-
-  ngOnDestroy(): void {
-    this.subs.forEach(sub => sub.unsubscribe());
-  }
-
-  getTrackArtists(track: ITrack) {
-    return track.artists.map(a => a.name).join(', ')
-  }
-
-  async playTrack(track: ITrack) {
-    await this.spotifyService.playTrack(track.id);
-
-    if (track.album.imageUrl) this.playerService.selectActualTrack(track);
-  }
-
-  getActualTrack() {
-    const sub = this.playerService.actualTrack.subscribe(track => this.actualTrack = track )
-    this.subs.push(sub);
   }
 
   getTracks() {

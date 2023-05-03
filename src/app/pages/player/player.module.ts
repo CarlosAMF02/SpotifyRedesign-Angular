@@ -17,6 +17,7 @@ import { ArtistItemImageComponent } from 'src/app/components/artist-item-image/a
 import { PlayerCardComponent } from 'src/app/components/player-card/player-card.component';
 import { MusicListComponent } from '../music-list/music-list.component';
 import { BannerComponent } from 'src/app/components/banner/banner.component';
+import { MusicListTableComponent } from 'src/app/components/music-list-table/music-list-table.component';
 
 
 
@@ -34,7 +35,8 @@ import { BannerComponent } from 'src/app/components/banner/banner.component';
     ArtistItemImageComponent,
     PlayerCardComponent,
     MusicListComponent,
-    BannerComponent
+    BannerComponent,
+    MusicListTableComponent
   ],
   imports: [
     CommonModule,
